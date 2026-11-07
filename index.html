@@ -182,6 +182,54 @@ button, input, select, textarea { touch-action: manipulation; }
   }
 }
 
+
+/* V36: bộ đếm nhân viên cùng hàng ô tìm kiếm; bảng cuộn dọc như trước */
+@media (max-width: 768px) {
+  .toolbar {
+    display: grid !important;
+    grid-template-columns: minmax(112px, 0.82fr) minmax(0, 1.55fr) !important;
+    gap: 8px !important;
+    align-items: stretch;
+  }
+  .toolbar .stat {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    padding: 7px 5px !important;
+    gap: 5px !important;
+    white-space: nowrap;
+  }
+  .toolbar .stat strong { font-size: 21px !important; }
+  .toolbar .stat span {
+    font-size: 10px !important;
+    line-height: 1.15;
+    white-space: normal !important;
+  }
+  .toolbar .search {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100%;
+    min-width: 0 !important;
+    min-height: 46px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  /* Các bộ lọc và nút phía dưới tự xếp thành các hàng tiếp theo */
+  .toolbar .filter-select { width: 100%; max-width: none; min-width: 0; }
+}
+/* Không ghim tiêu đề khi cuộn dọc; trở lại hành vi bảng thông thường */
+.table-wrap thead th,
+thead th {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
 </style>
 </head>
 <body>
